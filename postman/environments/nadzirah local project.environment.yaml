@@ -1,0 +1,5 @@
+name: nadzirah local project
+values:
+  - key: baseUrl
+    value: ''
+color: 300
