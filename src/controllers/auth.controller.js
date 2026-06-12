@@ -24,12 +24,13 @@ const register = async (req, res) => {
         name,
         email,
         password: hashedPassword,
+        role: "user",
       },
     });
 
     res.status(201).json({
       message: "User registered successfully",
-      user: { id: user.id, email: user.email },
+      user: { id: user.id, email: user.email, role: user.role },
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -60,7 +61,7 @@ const login = async (req, res) => {
     res.json({
       message: "Login successful",
       token,
-      user: { id: user.id, email: user.email },
+      user: { id: user.id, email: user.email, role: user.role },
     });
   } catch (err) {
     res.status(500).json({ message: err.message });
