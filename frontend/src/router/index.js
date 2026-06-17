@@ -3,6 +3,7 @@ import DashboardLayout from "../layouts/DashboardLayout.vue";
 
 import Login from "../views/Login.vue";
 import Dashboard from "../views/Dashboard.vue";
+import Users from "../views/Users.vue";
 
 const routes = [
   {
@@ -39,7 +40,11 @@ const routes = [
       }
      
       }
-   }
+   },
+   {
+    path: "/users",
+    component: Users
+  }
 ];
 
 const router = createRouter({

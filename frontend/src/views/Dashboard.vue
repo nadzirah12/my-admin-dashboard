@@ -31,6 +31,7 @@ import { useRouter } from "vue-router";
 import { useAuthStore } from "../stores/auth";
 import { ref, onMounted } from "vue";
 import api from "../api/axios";
+
 const router = useRouter();
 
 let totalUsers = 0;
