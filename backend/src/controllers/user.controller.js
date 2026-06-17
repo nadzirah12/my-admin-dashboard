@@ -147,10 +147,33 @@ const deleteUser = async (req, res) => {
   }
 };
 
+/**
+ * GET /users/stats
+ * Get all users status
+ */
+const getUsersStatus = async (req, res) => {
+  try {
+    const totalUsers = await prisma.user.count();
+
+    // active user will have same query as the table does not have status column yet
+    const activeUsers = await prisma.user.count();
+
+    res.json({
+      totalUsers,
+      activeUsers
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   getUsers,
   createUser,
   updateUser,
   deleteUser,
-  getProfile
+  getProfile,
+  getUsersStatus
 };
