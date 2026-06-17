@@ -9,6 +9,7 @@ const {
   updateUser,
   deleteUser,
   getProfile,
+  getUsersStatus
 } = require("../controllers/user.controller");
 
 const router = express.Router();
@@ -65,6 +66,13 @@ router.get(
       message: "Admin access granted",
     });
   }
+);
+
+router.get(
+  "/stats",
+  authenticate,
+  authorize("admin"),
+  getUsersStatus
 );
 
 module.exports = router;

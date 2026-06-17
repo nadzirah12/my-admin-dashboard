@@ -62,7 +62,7 @@
       );
   
   
-      router.push("/dashboard");
+      router.push("/");
   
   
     } catch(err){
