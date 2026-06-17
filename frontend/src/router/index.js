@@ -7,44 +7,39 @@ import Users from "../views/Users.vue";
 
 const routes = [
   {
+    path:"/login",
+    name:"login",
+    component:Login
+   },
+  {
     path: "/",
     component: DashboardLayout,
     children: [
       {
         path: "",
         name: "dashboard",
-        component: Dashboard,
-      },
-    ],
-  },
-  {
-    path:"/login",
-    name:"login",
-    component:Login
-   },
-   {
-    path:"/dashboard",
-    name:"dashboard",
-    component:Dashboard,
-    beforeEnter:(to,from,next)=>{
+        component:Dashboard,
+        beforeEnter:(to,from,next)=>{
 
-      const token =
-      localStorage.getItem("token");
-     
-     
-      if(token){
-         next();
+          const token =
+          localStorage.getItem("token");
+        
+        
+          if(token){
+            next();
+          }
+          else{
+            next("/login");
+          }
+        
+          }
+      },
+      {
+        path: "/users",
+        component: Users
       }
-      else{
-         next("/login");
-      }
-     
-      }
-   },
-   {
-    path: "/users",
-    component: Users
-  }
+    ],
+  },   
 ];
 
 const router = createRouter({
