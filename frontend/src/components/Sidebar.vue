@@ -10,10 +10,6 @@
       <router-link to="/users" class="block hover:text-blue-500">
         Users
       </router-link>
-
-      <router-link to="/settings" class="block hover:text-blue-500">
-        Settings
-      </router-link>
     </nav>
   </aside>
 </template>
